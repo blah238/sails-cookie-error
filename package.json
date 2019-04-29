@@ -1,0 +1,36 @@
+{
+  "name": "sails-test-app",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/lodash": "^3.10.3",
+    "bluebird": "^3.5.4",
+    "lodash": "^4.17.11",
+    "sails": "^1.1.0"
+  },
+  "devDependencies": {
+    "@sailshq/eslint": "^4.19.3",
+    "chai": "^4.2.0",
+    "import-fresh": "^3.0.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "test": "mocha",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anonymous node/sails user/sails-test-app.git"
+  },
+  "author": "anonymous node/sails user",
+  "license": "",
+  "engines": {
+    "node": "^10.15"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "modules": {}
+  },
+  "_generatedWith": {
+    "sails": "1.1.0",
+    "sails-generate": "1.16.7"
+  },
+  "hooks": {
+    "pubsub": false,
+    "blueprints": false,
+    "i18n": false
+  }
+}
