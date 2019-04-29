@@ -77,8 +77,8 @@ function _lift (options) {
       'userhooks',
       'views',
     ],
-    // http: require('../../config/http').http, // Comment out this line, AND
-    http: importFresh('../../config/http').http, // Un-comment this line to get tests passing
+    http: require('../../config/http').http, // Comment out this line, AND
+    // http: importFresh('../../config/http').http, // Un-comment this line to get tests passing
     routes: require('../../config/routes').routes,
     liftTimeout: 20000
   })
