@@ -3,7 +3,7 @@ var chai = require('chai');
 global.assert = chai.assert;
 global.expect = chai.expect;
 global.request = require('supertest');
-global.importFresh = require('import-fresh');
+global.decache = require('decache');
 
 // Helpers and fixtures
 global.appHelper = require('./helpers/appHelper');

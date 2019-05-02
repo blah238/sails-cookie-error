@@ -10,6 +10,5 @@ To reproduce:
 
 To get tests passing:
 
-1. Comment out line 80 in `test/helpers/appHelper.js`
-2. Uncomment line 81 in `test/helpers/appHelper.js`
-3. `npm test` again
+1. Uncomment line 49 in `test/helpers/appHelper.js`
+2. `npm test` again

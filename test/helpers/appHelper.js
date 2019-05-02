@@ -4,13 +4,13 @@
  * @description :: Provides 'lift' and 'lower' methods to set up and tear down a Sails instance (for use in tests)
  */
 
-var Sails = require('sails/lib/app'),
-    _ = require('lodash'),
-    Promise = require('bluebird'),
-    lifted = false,
-    sailsprocess;
+var _ = require('lodash'),
+    Promise = require('bluebird');
 
 var appHelper = {
+
+  app: null,
+  lifted: false,
 
   /**
    * Starts the Sails server and, by default, loads fixtures
@@ -28,7 +28,7 @@ var appHelper = {
 
     return Promise.try(function () {
       // Check whether the Sails server is already running, and stop it if so
-      if (lifted) {
+      if (appHelper.lifted) {
         return appHelper.lower();
       }
     })
@@ -43,9 +43,11 @@ var appHelper = {
    * @param {function} done Callback function
    */
   lower: function () {
-    return Promise.promisify(sailsprocess.lower)()
+    return Promise.promisify(appHelper.app.lower)()
     .finally(function () {
-      lifted = false;
+      appHelper.lifted = false;
+      delete appHelper.app;
+      // decache('../../config/http'); // Un-comment this line to get tests passing
     });
   }
 };
@@ -53,7 +55,9 @@ var appHelper = {
 module.exports = appHelper;
 
 function _lift (options) {
-  return Promise.promisify(Sails().lift)({
+  var Sails = require('sails').Sails;
+  var app = new Sails();
+  var _options = {
     globals: {
       _: false,
       async: false,
@@ -77,13 +81,13 @@ function _lift (options) {
       'userhooks',
       'views',
     ],
-    http: require('../../config/http').http, // Comment out this line, AND
-    // http: importFresh('../../config/http').http, // Un-comment this line to get tests passing
+    http: require('../../config/http').http,
     routes: require('../../config/routes').routes,
     liftTimeout: 20000
-  })
+  };
+  return Promise.fromCallback(_.partial(app.lift, _options))
   .tap(function (app) {
-    lifted = true;
-    sailsprocess = app;
+    appHelper.lifted = true;
+    appHelper.app = app;
   });
 }
