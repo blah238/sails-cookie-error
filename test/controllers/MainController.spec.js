@@ -8,7 +8,7 @@ describe('MainController', function () {
   describe('#index', function (done) {
 
     it('should return a 200 status', function (done) {
-      request(sails.hooks.http.app)
+      request(appHelper.app.hooks.http.app)
       .get('/')
       .expect(200, done);
     });
@@ -22,7 +22,7 @@ describe('MainController', function () {
     });
 
     it('should return a 200 status (again)', function (done) {
-      request(sails.hooks.http.app)
+      request(appHelper.app.hooks.http.app)
       .get('/')
       .expect(200, done);
     });

@@ -21,25 +21,25 @@ module.exports.checkLocation = function (settings, done) {
 };
 
 function checkGet (settings, done) {
-  request(sails.hooks.http.app)
+  request(appHelper.app.hooks.http.app)
   .get(settings.get)
   .expect(settings.result, done);
 }
 
 function checkPost (settings, done) {
-  request(sails.hooks.http.app)
+  request(appHelper.app.hooks.http.app)
   .post(settings.post)
   .expect(settings.result, done);
 }
 
 function checkPostSend (settings, done) {
   if (settings.location) {
-    request(sails.hooks.http.app)
+    request(appHelper.app.hooks.http.app)
     .post(settings.post)
     .send(settings.send)
     .expect(settings.result, done);
   } else {
-    request(sails.hooks.http.app)
+    request(appHelper.app.hooks.http.app)
     .post(settings.post)
     .send(settings.send)
     .expect('Location', settings.location)
@@ -48,7 +48,7 @@ function checkPostSend (settings, done) {
 }
 
 function checkPostGet (settings, done) {
-  var agent = request.agent(sails.hooks.http.app);
+  var agent = request.agent(appHelper.app.hooks.http.app);
   agent
   .post(settings.post)
   .send(settings.send)
@@ -70,7 +70,7 @@ function checkPostGet (settings, done) {
 }
 
 function checkPostPost (settings, done) {
-  var agent = request.agent(sails.hooks.http.app);
+  var agent = request.agent(appHelper.app.hooks.http.app);
   agent
   .post(settings.post)
   .send(settings.send)

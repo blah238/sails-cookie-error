@@ -63,8 +63,8 @@ function _lift (options) {
     globals: {
       _: false,
       async: false,
-      models: true,
-      sails: true
+      models: false,
+      sails: false
     },
     log: {
       level: options.logLevel
