@@ -7,38 +7,24 @@ describe('MainController', function () {
 
   describe('#index', function (done) {
 
-    it('should redirect to the site root', function (done) {
+    it('should return a 200 status', function (done) {
       request(sails.hooks.http.app)
       .get('/')
-      .expect(302)
-      .end(function (err, res) {
-        if (err) {
-          return done(err);
-        }
-        expect(res.headers.location).to.equal('/');
-        done();
-      });
+      .expect(200, done);
     });
   });
 
-  describe('#index2', function (done) {
+  describe('#index2 (repeat tests after 2nd lift)', function (done) {
 
     before(function () {
       // Lowers and then re-lifts the app before the next test
       return appHelper.lift();
-    })
+    });
 
-    it('should redirect to the site root again', function (done) {
+    it('should return a 200 status (again)', function (done) {
       request(sails.hooks.http.app)
       .get('/')
-      .expect(302)
-      .end(function (err, res) {
-        if (err) {
-          return done(err);
-        }
-        expect(res.headers.location).to.equal('/');
-        done();
-      });
+      .expect(200, done);
     });
   });
 });

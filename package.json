@@ -8,6 +8,8 @@
     "@sailshq/lodash": "^3.10.3",
     "bluebird": "^3.5.4",
     "lodash": "^4.17.11",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sails": "^1.1.0"
   },
   "devDependencies": {

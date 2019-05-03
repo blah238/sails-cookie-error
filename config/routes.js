@@ -11,5 +11,8 @@
 module.exports.routes = {
 
   'get /': 'MainController.index',
+  'get /login': 'AuthController.login',
+  'post /login': 'AuthController.processLogin',
+  'get /logout': 'AuthController.logout'
 
 };

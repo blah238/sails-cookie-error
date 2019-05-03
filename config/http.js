@@ -9,6 +9,12 @@
  * https://sailsjs.com/config/http
  */
 
+var passport = require('passport'),
+    initializePassportLocalStrategy = require('../api/middleware/passport');
+
+initializePassportLocalStrategy(passport);
+
+
 module.exports.http = {
 
   /****************************************************************************
@@ -22,6 +28,9 @@ module.exports.http = {
 
   middleware: {
 
+    passportInit: passport.initialize(),
+    passportSession: passport.session(),
+
     /***************************************************************************
     *                                                                          *
     * The order in which middleware should be run for HTTP requests.           *
@@ -32,6 +41,8 @@ module.exports.http = {
     order: [
       'cookieParser',
       'session',
+      'passportInit',
+      'passportSession',
       'bodyParser',
       'compress',
       'poweredBy',

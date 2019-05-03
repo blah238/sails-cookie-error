@@ -7,6 +7,9 @@
 
 module.exports = {
   index: function (req, res) {
-    return res.redirect('/');
+    if (req.user) {
+      return res.send('<html><body><p>' + 'Welcome, ' + req.user.username + '</p><a href="/logout">Log out</a></body></html>');
+    }
+    return res.send('<html><body><p>Welcome, guest</p><a href="/login">Log in</a></body></html>')
   }
 };

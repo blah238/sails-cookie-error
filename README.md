@@ -1,6 +1,6 @@
 # Sails.js 1.x cookie-parser error
 
-This is a Sails.js 1.x application with a (relatively) minimal test harness reproducing an issue where a second `lift` of Sails fails with an error in the `cookie-parser` module.
+This is a Sails.js 1.x application with a (relatively) minimal test harness reproducing an issue where a second `lift` of Sails fails with an error in the 3rd-party `passport` module.
 
 To reproduce:
 
@@ -10,5 +10,5 @@ To reproduce:
 
 To get tests passing:
 
-1. Uncomment line 49 in `test/helpers/appHelper.js`
+1. Uncomment line 51 in `test/helpers/appHelper.js`
 2. `npm test` again
