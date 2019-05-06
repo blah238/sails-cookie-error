@@ -48,8 +48,6 @@ var appHelper = {
       appHelper.lifted = false;
       delete appHelper.app;
       decache('../../config/http'); // Workaround for https://github.com/balderdashy/sails/issues/4842
-      // decache('../../api/controllers/AuthController'); // Un-comment this line to get tests passing
-      // decache('sails'); // Has same effect as previous line but maybe overkill?
     });
   }
 };
