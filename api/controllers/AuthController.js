@@ -4,7 +4,7 @@
  * @description ::
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
-var passport = require('passport'),
+var passport = require('../middleware/passport'),
     _ = require('lodash');
 
 var AuthController = {

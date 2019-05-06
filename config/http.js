@@ -9,11 +9,7 @@
  * https://sailsjs.com/config/http
  */
 
-var passport = require('passport'),
-    initializePassportLocalStrategy = require('../api/middleware/passport');
-
-initializePassportLocalStrategy(passport);
-
+var passport = require('../api/middleware/passport');
 
 module.exports.http = {
 
